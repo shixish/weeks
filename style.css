@@ -1,0 +1,72 @@
+body{
+  background: white;
+  margin: 0;
+  font-size: 24px;
+}
+
+/* .display{
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  box-sizing: border-box;
+  grid-gap: 1px;
+} */
+
+.week{
+  box-sizing: border-box;
+  height: 1ex;
+  background: orange;
+}
+
+.grid{
+  width: 100vw;
+  height: 100vh;
+  /* border-spacing: 1px; */
+  border-collapse: collapse;
+  background: rgb(255,203,80);
+  background: linear-gradient(90deg, rgba(255,203,80,1) 0%, rgba(218,95,38,1) 100%);
+}
+
+.grid td{
+  border: 1px solid white;
+}
+.grid tr.past td{
+  background: #ccc;
+}
+.grid tr.current td.past{
+  background: #ccc;
+}
+.grid tr.current td.current{
+  background: green;
+  position: relative;
+}
+.grid tr.current td.current:before{
+  content: '';
+  background: #bbb;
+  width: var(--day-of-week-percentage);
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: .75;
+}
+.grid tr.current td.current:after{
+  content: var(--day-of-week-percentage);
+}
+.grid tr:nth-child(-n+14) td{
+  background: #efefef;
+}
+.grid tr:nth-child(n+14):nth-child(-n+18) td{
+  background: #ddd;
+}
+
+.grid tr td.nothing{
+  background: white;
+}
+/* .grid tr:nth-child(n+18):has(+ .today) td{
+  background: #ddd;
+} */
+
+/* 18*52=936 */
+/* .week:nth-child(-n+936){
+  background: silver;
+} */
